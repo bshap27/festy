@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+  get 'festivals/index'
+
+  get 'festivals/show'
+
+  resources :festivals
+
+  root 'festivals#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

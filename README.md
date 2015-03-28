@@ -15,7 +15,47 @@ like?
 
 ## Features
 
-Bullet point some of the key features of your app here.
+for compare tool:
+- authorize through jambase using oauth?
+- Tag festivals by type: EDM, Jam, etc.
+- allow users to add favorite artists AND/OR connect to jambase for favorite artists.
+- select 2 fests from dropdown and see artist overlap - total count and names and then unique artists.
+- venn diagrams
+- 
+
+
+featured festivals on jambase:
+http://festivals.jambase.com/
+
+can scrape to get title and image hrefs
+
+Fest Lists
+Electric Forest
+Wanee
+Mountain Jam
+High Sierra
+Hangout
+Backwoods
+Firefly
+Jazz Fest (2 wkds) ** special compare weekends feature.
+DelFest
+Forecastle
+Aiken Bluegrass Fest
+bonnaroo
+peach
+old settlers fest
+shaky knees
+summer camp
+counterpoint
+lockn
+wakarusa
+vibes
+
+
+
+
+
+
 
 ## Usage
 
