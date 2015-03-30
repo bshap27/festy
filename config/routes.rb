@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'festivals/index'
+  resources :festivals, :only => [:index, :show]
+  resources :artists, :only => [:index]
 
-  get 'festivals/show'
-
-  resources :festivals
+  get 'compare' => 'compare#compare'
+  get "artists/alphabetical/:letter" => "artists#index", :as => 'artists_pagination'
+  # get 'artists/:letter' => 'artists#letter'
+  get 'artists/:id' => 'artists#show', :as => 'artist'
 
   root 'festivals#index'
 

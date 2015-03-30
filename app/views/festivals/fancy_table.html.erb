@@ -1,0 +1,22 @@
+<h1>WELCOME TO FESTY HO!</h1>
+	
+<table style="width:100%">
+	  <tr>
+			<% @festivals.each do |f| %>
+		  	<th><%= link_to f.name, f %></th>
+			<% end %>
+	  </tr>
+	  <tr>
+	  	<% @festivals.each do |festival| %>
+				<td>
+	  			<% festival.artists.each do |artist| %>
+		  			<%= artist.name %>, 
+	  			<% end %>
+  			</td>
+			<% end %>
+		</tr>
+</table>
+
+<% @festivals.each do |f| %>
+	<li><%= link_to f.name, f %>: begins on <%= f.start_date.strftime("%m/%d") %></li>
+<% end %>

@@ -1,0 +1,26 @@
+<h3>You selected: <%= link_to @fest1.name, @fest1 %> and <%= link_to @fest2.name, @fest2 %></h3>
+
+<h2>Artists in common:</h2>
+<% @compare.artists_in_common.each do |artist| %>
+	<li><%= link_to artist.name, artist %></li>
+<% end %>
+
+
+<table>
+	  <tr>
+	  	<th>Other artists at <%= link_to @fest1.name, @fest1 %></th>
+	  	<th>Other artists at <%= link_to @fest2.name, @fest2 %></th>
+	  </tr>
+	  <tr>
+			<td>
+				<% @compare.unique_artists(@fest1).each do |artist| %>
+					<li><%= link_to artist.name, artist %></li>
+				<% end %>
+			</td>
+			<td>
+				<% @compare.unique_artists(@fest2).each do |artist| %>
+					<li><%= link_to artist.name, artist %></li>
+				<% end %>
+			</td>
+		</tr>
+</table>

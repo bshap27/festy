@@ -15,29 +15,24 @@ ActiveRecord::Schema.define(version: 20150328175734) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
-    t.integer  "jambaseid"
+    t.string   "sort_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "festival_artists", force: :cascade do |t|
-    t.integer  "festival_day_id"
-    t.integer  "artist_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  create_table "festival_days", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "jambaseid"
-    t.datetime "date"
     t.integer  "festival_id"
+    t.integer  "artist_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
   create_table "festivals", force: :cascade do |t|
     t.string   "name"
+    t.string   "slug"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string   "img_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

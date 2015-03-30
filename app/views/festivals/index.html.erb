@@ -1,3 +1,21 @@
-<% @festivals.each do |f| %>
-	<li><%= link_to f.name, f %></li>
+<h1>WELCOME TO FESTY HO!</h1>
+	
+<h2>Compare Lineups!</h2>
+<%= form_tag("/compare", method: "get") do %>
+	<%= select_tag(:fest1, options_for_select(@festivals.collect {|fest| [fest.name, fest.id]})) %>
+	<%= select_tag(:fest2, options_for_select(@festivals.collect {|fest| [fest.name, fest.id]}, 2)) %>
+  <%= submit_tag("Compare") %>
 <% end %>
+
+<h2>Or, see where your favorite artists are playing:</h2>
+<ul>
+	<li class="letter"><%= link_to "All", artists_pagination_path("All"), :class => 'letter_link' %></li>
+	<% @first_letters.each do |letter| %>
+	    <li class="letter"><%= link_to letter, artists_pagination_path(letter), :class => 'letter_link' %></li>
+	<% end %>
+</ul>
+
+<div id="matching-artists">
+	<ul id="artist-list">
+	</ul>
+</div>

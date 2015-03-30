@@ -1,6 +1,6 @@
 class FestivalArtist < ActiveRecord::Base
 
   belongs_to :artist
-  belongs_to :festival_day
+  belongs_to :festival
 
 end

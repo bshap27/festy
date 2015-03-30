@@ -1,0 +1,8 @@
+<h1><%= @artist.name %></h1>
+<h3>will be playing at <%= @artist.festivals.count %> upcoming <%= @artist.festivals.count == 1 ? "festival:" : "festivals!" %></h3>
+
+<ul>
+	<% @artist.festivals.each do |f| %>
+		<li><%= link_to f.name, f %></li>
+	<% end %>
+</ul>

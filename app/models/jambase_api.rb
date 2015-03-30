@@ -23,7 +23,6 @@ class JambaseApi
 
   def update_artists
     FestivalDay.all.each do |festday|
-      binding.pry
       json = self.get_json(url(festday.jambaseid))
 
       json["Artists"].each do |artist|
