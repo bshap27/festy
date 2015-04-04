@@ -1,0 +1,11 @@
+<ul id="first-letters">
+	<li class="letter"><%= link_to "All", artists_pagination_path("All"), :class => 'letter_link' %></li>
+	<% @first_letters.each do |letter| %>
+	    <li class="letter"><%= link_to letter, artists_pagination_path(letter), :class => 'letter_link' %></li>
+	<% end %>
+</ul>
+
+<div id="matching-artists">
+	<ul id="artist-list">
+	</ul>
+</div>

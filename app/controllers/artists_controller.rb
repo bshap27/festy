@@ -12,6 +12,8 @@ class ArtistsController < ApplicationController
       f.html {}
     end
 
+    @tops = Artist.joins(:festival_artists).limit(10).order('count_name DESC').group('name').count('name')
+
   end
 
   def show

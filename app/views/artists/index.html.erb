@@ -1,14 +1,9 @@
-<h3>add in search functionality here</h3>
-<h3>add in 'artists who are getting around' (playing most fests) here</h3>
+<h3>Artists 'playing the field' this festival season:</h3>
 
-<ul>
-	<li class="letter"><%= link_to "All", artists_pagination_path("All"), :class => 'letter_link' %></li>
-	<% @first_letters.each do |letter| %>
-	    <li class="letter"><%= link_to letter, artists_pagination_path(letter), :class => 'letter_link' %></li>
+<ol>
+	<% @tops.each do |artist, count| %>
+		<li><% artist = Artist.find_by(:name => artist) %><%= artist.name %>: playing <%= link_to "#{count} festivals", artist %></li>
 	<% end %>
-</ul>
+</ol>
 
-<div id="matching-artists">
-	<ul id="artist-list">
-	</ul>
-</div>
+<%= render 'artists' %>

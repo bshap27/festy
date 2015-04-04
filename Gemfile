@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 gem 'prybaby'
-gem 'alphabetical_paginate'
+# gem 'alphabetical_paginate'
+gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use SCSS for stylesheets
