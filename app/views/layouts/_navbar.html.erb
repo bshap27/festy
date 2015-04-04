@@ -21,17 +21,17 @@
       <%= render 'layouts/search' %>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Log In</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
+        <% if user_signed_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hello, <%= current_user.email %>! <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="<%= user_account_path %>">My Account</a></li>
+            </ul>
+          </li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
+        <% else %>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

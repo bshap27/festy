@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  get 'user_account' => 'users#show'
+
   resources :festivals, :only => [:index, :show]
   resources :artists, :only => [:index]
 
