@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  get 'user_account' => 'users#show'
+  get 'my_account' => 'users#show'
+  get 'my_festivals' => 'users#festivals'
+  get 'my_artists' => 'users#artists'
 
   resources :festivals, :only => [:index, :show]
   resources :artists, :only => [:index]
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
   # get 'artists/:letter' => 'artists#letter'
   get 'artists/:id' => 'artists#show', :as => 'artist'
 
-  root 'festivals#index'
+  root 'compare#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

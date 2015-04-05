@@ -5,5 +5,21 @@
   <%= submit_tag("Compare") %>
 <% end %>
 
-<h2>Or, see where your favorite artists are playing:</h2>
-<%= render 'artists/artists' %>
+<h2>Upcoming Festivals:</h2>
+
+<table style="width:100%">
+  <tr>
+  	<th></th>
+  	<th>Location</th>
+  	<th>Start Date</th>
+  	<th>End Date</th>
+  </tr>
+	<% @festivals.each do |festival| %>
+	  <tr>
+			<td><%= link_to festival.name, festival %></td>
+			<td></td>
+			<td><%= festival.start_date.strftime("%m/%d") %></td>
+			<td><%= festival.end_date.strftime("%m/%d") %></td>
+		</tr>
+	<% end %>
+</table>

@@ -1,0 +1,26 @@
+<h3>My Artists</h3>
+
+<table style="width:100%">
+  <tr>
+  	<th></th>
+  	<th>I'll see them at:</th>
+  	<th>Playing at festivals I'm watching:</th>
+  </tr>
+	<% @artists.each do |artist| %>
+  <tr>
+		<td><%= link_to artist.name, artist %></td>
+		<td>
+			<% fests = @festivals_going.select {|festival| festival.artists.include? artist } %>
+			<% fests.each do |fest| %>
+				<li><%= link_to fest.name, fest %></li>
+			<% end %>
+		</td>
+		<td>
+			<% fests = @festivals_watching.select {|festival| festival.artists.include? artist } %>
+			<% fests.each do |fest| %>
+				<li><%= link_to fest.name, fest %></li>
+			<% end %>
+		</td>
+	</tr>
+	<% end %>
+</table>

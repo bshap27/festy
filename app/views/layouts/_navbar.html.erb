@@ -14,8 +14,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="/artists">Artists<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li class="active"><a href="/festivals">Festivals<span class="sr-only">(current)</span></a></li>
+        <li><a href="/artists">Artists<span class="sr-only">(current)</span></a></li>
       </ul>
       
       <%= render 'layouts/search' %>
@@ -25,7 +25,9 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hello, <%= current_user.email %>! <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="<%= user_account_path %>">My Account</a></li>
+              <li><a href="<%= my_festivals_path %>">My Festivals</a></li>
+              <li><a href="<%= my_artists_path %>">My Artists</a></li>
+              <li><a href="<%= my_account_path %>">My Account</a></li>
             </ul>
           </li>
           <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>

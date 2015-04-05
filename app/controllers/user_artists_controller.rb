@@ -13,6 +13,7 @@ class UserArtistsController < ApplicationController
     @user_artist = UserArtist.find(params[:id])
     @user_artist.destroy
     #UserFestival.find_by(user_id: current_user.id, festival_id: params[:id], relationship_type: 1)
+    redirect_to :back
   end
 
   private
