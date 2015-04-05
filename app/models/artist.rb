@@ -10,7 +10,7 @@ class Artist < ActiveRecord::Base
     if letter == "All"
       Artist.order("name")
     else
-      Artist.where("name LIKE ?", "#{letter}%")
+      Artist.where("name LIKE ?", "#{letter}%").order("name ASC")
     end
   end
 
