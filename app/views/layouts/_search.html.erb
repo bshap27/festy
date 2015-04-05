@@ -1,6 +1,13 @@
-<form class="navbar-form navbar-left" role="search">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Find Artist or Festival">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+<%= form_for(Search.new, :url => search_results_path, :role => 'search', :method => 'get') do |f| %>
+	<div class='navbar-form navbar-left'>
+		<div class="form-group">
+	    <select name="category" class="form-control">
+	    	<option value="None">Search By...</option>
+	    	<option value="Festival">Festival</option>
+	    	<option value="Artist">Artist</option>
+	    </select>
+		<%= f.text_field :search_term, label: false,  placeholder: 'Find Artist or Festival', :class => "form-control" %> 
+	  </div>
+	<%= f.submit "Go", :class => "btn btn-default" %>
+<% end %>
+</div>

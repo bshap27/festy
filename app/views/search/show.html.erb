@@ -1,0 +1,24 @@
+<% if @festival_results %>
+
+	Found <%= @festival_results.count %> matching festivals
+
+	<ul>
+	<% @festival_results.each do |festival| %>
+		<li><%= link_to festival.name, festival %></li>
+	<% end %>
+	</ul>
+
+<% end %>
+
+
+<% if @artist_results %>
+
+	Found <%= @artist_results.count %> matching artists
+
+	<ul>
+	<% @artist_results.each do |artist| %>
+		<li><%= link_to artist.name, artist %></li>
+	<% end %>
+	</ul>
+
+<% end %>
