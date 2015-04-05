@@ -1,7 +1,7 @@
 <img src="<%= @festival.img_url %>">
-<div class="add-festival">
-	<h5 class='btn'>I'm going!</h5>
-</div>
+
+<%= render 'im_going' %>
+
 <h4>Begins: <%= @festival.start_date.strftime("%m/%d") %> | Ends: <%= @festival.end_date.strftime("%m/%d") %></h4>
 
 <h3><%= @festival.artists.count %> artists are playing at <%= @festival.name %>:</h3>

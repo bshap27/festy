@@ -1,0 +1,9 @@
+<div class="add-artist">
+
+	<%= form_for(UserArtist.new, :class => 'btn') do |f| %>
+		<%= f.hidden_field(:user_id, :value => current_user.id) %>
+		<%= f.hidden_field(:artist_id, :value => @artist.id) %>
+		<%= f.submit "Add to my artists" %>
+	<% end %>
+
+</div>

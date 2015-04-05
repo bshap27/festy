@@ -21,5 +21,6 @@ class FestivalsController < ApplicationController
   def show
     @festivals = Festival.all
     @festival = Festival.find(params[:id])
+    # binding.pry
   end
 end

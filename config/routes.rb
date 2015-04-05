@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :festivals, :only => [:index, :show]
   resources :artists, :only => [:index]
+  resources :user_festivals, :only => [:create, :destroy]
+  resources :user_artists, :only => [:create, :destroy]
 
   get 'compare' => 'compare#compare'
   get "artists/alphabetical/:letter" => "artists#index", :as => 'artists_pagination'
