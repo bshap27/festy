@@ -1,12 +1,14 @@
-<img src="<%= @festival.img_url %>">
+<img src="<%= @festival.img_url %>" class="center">
+
+<h4 class='center'>Begins: <%= @festival.start_date.strftime("%m/%d") %> | Ends: <%= @festival.end_date.strftime("%m/%d") %></h4>
 
 <%= render 'im_going' %>
 
-<h4>Begins: <%= @festival.start_date.strftime("%m/%d") %> | Ends: <%= @festival.end_date.strftime("%m/%d") %></h4>
 
 <h3><%= @festival.artists.count %> artists are playing at <%= @festival.name %>:</h3>
+<p>&#x2713 = in My Artists</p>
 <% @festival.artists.each do |a| %>
-	<li><%= link_to a.name, a %></li>
+	<li class='<%= current_user.artists.include?(a) ? 'my-artist' : 'artist-list' %>'><%= link_to a.name, a %></li>
 <% end %>
 
 <h3>Compare lineup to other festivals:</h3>
