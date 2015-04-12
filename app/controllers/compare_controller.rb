@@ -1,11 +1,11 @@
 class CompareController < ApplicationController
 
   def index
-    @festivals = Festival.all
+    @festivals = Festival.all.order("name")
     # @artists = Artist.order("name")
 
     # artists
-    @first_letters = Artist.all.collect {|artist| artist.name.capitalize[0,1]}.uniq.sort
+    @first_letters = Artist.first_letters
     
     if params[:letter]
       @artists = Artist.by_letter(params[:letter])

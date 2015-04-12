@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150404223846) do
+ActiveRecord::Schema.define(version: 20150411231447) do
 
   create_table "artists", force: :cascade do |t|
     t.string   "name"
@@ -33,8 +33,16 @@ ActiveRecord::Schema.define(version: 20150404223846) do
     t.datetime "start_date"
     t.datetime "end_date"
     t.string   "img_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "official_site"
+    t.string   "facebook"
+    t.string   "twitter"
+    t.string   "youtube"
+    t.string   "instagram"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zipcode"
   end
 
   create_table "user_artists", force: :cascade do |t|

@@ -8,10 +8,14 @@ class Artist < ActiveRecord::Base
   
   def self.by_letter(letter)
     if letter == "All"
-      Artist.order("name")
+      Artist.order("sort_name")
     else
-      Artist.where("name LIKE ?", "#{letter}%").order("name ASC")
+      Artist.where("sort_name LIKE ?", "#{letter}%").order("sort_name ASC")
     end
+  end
+
+  def self.first_letters
+    all.collect {|artist| artist.name.capitalize[0,1] unless artist.name.capitalize[0,1] == "."}.compact.uniq.sort
   end
 
 end

@@ -4,17 +4,25 @@
 
 <%= render 'im_going' %>
 
+<%= form_tag("/compare", method: "get", :class => 'form-horizontal') do %>
+  <fieldset>
+    <legend>Compare lineup to other festivals:</legend>
+    <div class="form-group">
+			<%= hidden_field_tag(:fest1, value = @festival.id) %>
+
+			<div class="col-lg-5">
+      	<%= select_tag(:fest2, options_for_select(@festivals.collect {|fest| [fest.name, fest.id] unless fest == @festival}.compact), :class => "form-control", :id => "select") %>
+    	</div>
+      
+      <%= submit_tag("Compare", :class => "btn btn-primary") %>
+    	
+    </div>
+  </fieldset>
+<% end %>
 
 <h3><%= @festival.artists.count %> artists are playing at <%= @festival.name %>:</h3>
+
 <p>&#x2713 = in My Artists</p>
 <% @festival.artists.each do |a| %>
 	<li class='<%= current_user.artists.include?(a) ? 'my-artist' : 'artist-list' %>'><%= link_to a.name, a %></li>
-<% end %>
-
-<h3>Compare lineup to other festivals:</h3>
-
-<%= form_tag("/compare", method: "get") do %>
-	<%= hidden_field_tag(:fest1, value = @festival.id) %>
-	<%= select_tag(:fest2, options_for_select(@festivals.collect {|fest| [fest.name, fest.id] unless fest == @festival}.compact)) %>
-  <%= submit_tag("Compare") %>
 <% end %>

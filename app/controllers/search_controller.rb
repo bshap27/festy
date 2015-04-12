@@ -8,6 +8,8 @@ class SearchController < ApplicationController
     search_results
   end
  
+private
+
   def search_results
     category = params["category"]
     if category == "Artist" || category == "None"

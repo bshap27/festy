@@ -17,11 +17,28 @@ class JambaseScraper
     festival[:end_date] = fest_page.css("[itemprop='endDate']")[0]["content"]
     festival[:img_url] = fest_page.css("div.featured-media.featured-media-img img").attr("src").value
 
+    links = {}
+    fest_page.css("div.panel.panel-info.panel-links div.panel-body ul.list-unstyled li a").each do |li|
+      links[li.text.strip[1..-1]] = li["href"].strip
+    end
+
+    festival[:official_site] = links["Official Site"]
+    festival[:facebook] = links["Facebook"]
+    festival[:twitter] = links["Twitter"]
+    festival[:youtube] = links["YouTube"]
+    festival[:instagram] = links["Instagram"]
+
+    festival[:city] = fest_page.css("[itemprop='addressLocality']")[0].text
+    festival[:state] = fest_page.css("[itemprop='addressRegion']")[0].text
+    festival[:zipcode] = fest_page.css("[itemprop='postalCode']")[0].text
+
     fest_page.css("div.panel-body222.text-center ul li a").each do |a|
       name = a.text.strip
       if name[0,4] == "The "
-        festival[:artists] << {name: name, sort_name: name[4..-1]}
-      else
+        festival[:artists] << {name: name, sort_name: name[4..-1]} #saving sort_name doesn't seem to be working, here or in else statement.
+      elsif name[0,1] == "."
+        festival[:artists] << {name: name, sort_name: name[1..-1]}
+      elsif name != ""
         festival[:artists] << {name: name, sort_name: name}
       end
     end
@@ -38,15 +55,24 @@ class JambaseScraper
   # end
 
   def self.create_or_update_festival(slug)
-    # binding.pry
+    binding.pry
     f = Festival.find_by(slug: slug)
     hash = self.new.scrape_festival(slug)
-    f = Festival.create(slug: slug, name: hash[:name], start_date: hash[:start_date], end_date: hash[:end_date], img_url: hash[:img_url]) if !f
+    if f
+      f.update(official_site: hash[:official_site], facebook: hash[:facebook], twitter: hash[:twitter], youtube: hash[:youtube], instagram: hash[:instagram],  city: hash[:city], state: hash[:state], zipcode: hash[:zipcode])
+    else
+      if hash[:artists].size > 0
+        f = Festival.create(slug: slug, name: hash[:name], start_date: hash[:start_date], end_date: hash[:end_date], img_url: hash[:img_url], official_site: hash[:official_site], facebook: hash[:facebook], twitter: hash[:twitter], youtube: hash[:youtube], instagram: hash[:instagram],  city: hash[:city], state: hash[:state], zipcode: hash[:zipcode])
+      end
+    end
 
-    hash[:artists].each do |a|
-      artist = Artist.find_or_create_by(name: a[:name])
-      artist.sort_name ||= a[:sort_name]
-      FestivalArtist.find_or_create_by(artist_id: artist.id, festival_id: f.id)
+    if f
+      hash[:artists].each do |a|
+        artist = Artist.find_or_create_by(name: a[:name])
+        artist.sort_name = a[:sort_name]
+        artist.save
+        FestivalArtist.find_or_create_by(artist_id: artist.id, festival_id: f.id)
+      end
     end
   end
 
