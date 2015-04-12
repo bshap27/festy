@@ -55,7 +55,7 @@ class JambaseScraper
   # end
 
   def self.create_or_update_festival(slug)
-    binding.pry
+    # binding.pry
     f = Festival.find_by(slug: slug)
     hash = self.new.scrape_festival(slug)
     if f
