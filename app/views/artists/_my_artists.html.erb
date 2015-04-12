@@ -1,9 +1,14 @@
-<div class="add-artist">
+<% if user_signed_in? %>
+	<div class="add-artist">
 
-	<%= form_for(UserArtist.new, :class => 'btn') do |f| %>
-		<%= f.hidden_field(:user_id, :value => current_user.id) %>
-		<%= f.hidden_field(:artist_id, :value => @artist.id) %>
-		<%= f.submit "Add to my artists" %>
-	<% end %>
+		<%= form_for(UserArtist.new, :class => 'btn') do |f| %>
+			<%= f.hidden_field(:user_id, :value => current_user.id) %>
+			<%= f.hidden_field(:artist_id, :value => @artist.id) %>
+			<%= f.submit "Add to my artists" %>
+		<% end %>
 
-</div>
+	</div>
+
+<% else %>
+	<p>Sign in or create an account to save this artist to your artists.</p>
+<% end %>

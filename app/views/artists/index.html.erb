@@ -2,7 +2,7 @@
 
 <ol>
 	<% @tops.each do |artist, count| %>
-		<li><% artist = Artist.find_by(:name => artist) %><%= artist.name %>: playing <%= link_to "#{count} festivals", artist %></li>
+		<li><% artist = Artist.find_by(:name => artist) %><%= link_to artist.name, artist %>: playing <%= link_to "#{count} festivals", artist %></li>
 	<% end %>
 </ol>
 
