@@ -20,7 +20,7 @@ class FestivalsController < ApplicationController
   private
 
   def sort_column
-    %w[name count start_date end_date].include?(params[:sort]) ? params[:sort] : "name"
+    %w[name count start_date end_date state].include?(params[:sort]) ? params[:sort] : "name"
   end
 
   def sort_direction
