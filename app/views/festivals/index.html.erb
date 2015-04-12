@@ -2,19 +2,21 @@
 
 <h2>Upcoming Festivals:</h2>
 
-<table style="width:100%">
+<table style="width:100%" class="festival-sortable">
   <tr>
-  	<th></th>
+  	<th><%= sortable "name" %> <%= render 'arrows', column: "name" %></th>
+  	<th><%= sortable "count", "Number of Artists"%> <%= render 'arrows', column: "count" %></th>
+  	<th><%= sortable "start_date", "Start Date" %> <%= render 'arrows', column: "start_date" %></th>
+  	<th><%= sortable "end_date", "End Date" %> <%= render 'arrows', column: "end_date" %></th>
   	<th>Location</th>
-  	<th>Start Date</th>
-  	<th>End Date</th>
   </tr>
 	<% @festivals.each do |festival| %>
 	  <tr>
 			<td><%= link_to festival.name, festival %></td>
-			<td></td>
+			<td><%= festival.artists.count %></td>
 			<td><%= festival.start_date.strftime("%m/%d") %></td>
 			<td><%= festival.end_date.strftime("%m/%d") %></td>
+			<td><%= "#{festival.city}, " %><%= festival.state %></td>
 		</tr>
 	<% end %>
 </table>

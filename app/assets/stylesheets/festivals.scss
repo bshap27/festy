@@ -37,3 +37,24 @@ img.center {
 .center {
 	text-align: center;
 }
+
+th .current {
+	
+}
+
+th .asc {
+	/*background-image: url(/images/up_arrow.gif) arrow-up;*/
+}
+
+th .desc {
+
+}
+
+span#arrow {
+	font-size: 10px;
+	color: #dd4814;
+}
+
+span#arrow.inactive {
+	display: none;
+}
