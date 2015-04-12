@@ -10,12 +10,11 @@ class JambaseScraper
     fest_page = Nokogiri::HTML(open("http://festivals.jambase.com/festival/#{name}"))
 
     festival = {:artists => []}
-
     festival[:slug] = name
     festival[:name] = fest_page.css("h1.article-title").text.strip
     festival[:start_date] = fest_page.css("[itemprop='startDate']")[0]["content"]
     festival[:end_date] = fest_page.css("[itemprop='endDate']")[0]["content"]
-    festival[:img_url] = fest_page.css("div.featured-media.featured-media-img img").attr("src").value
+    festival[:img_url] = fest_page.css("div.featured-media.featured-media-img img").attr("src").value if fest_page.css("div.featured-media.featured-media-img img").length != 0
 
     links = {}
     fest_page.css("div.panel.panel-info.panel-links div.panel-body ul.list-unstyled li a").each do |li|
