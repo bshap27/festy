@@ -13,7 +13,7 @@ class Compare
 
   def unique_artists(fest)
     a = artists_in_common
-    fest.artists.select {|artist| !a.include?(artist)}
+    fest.artists.order("sort_order").select {|artist| !a.include?(artist)}
   end
 
 end

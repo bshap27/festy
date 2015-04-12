@@ -7,6 +7,6 @@ class FestivalsController < ApplicationController
   def show
     @festivals = Festival.order("name ASC")
     @festival = Festival.find(params[:id])
-    # binding.pry
+    @artists = @festival.artists.order("sort_order ASC")
   end
 end

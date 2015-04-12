@@ -32,30 +32,21 @@ class JambaseScraper
     festival[:state] = fest_page.css("[itemprop='addressRegion']")[0].text
     festival[:zipcode] = fest_page.css("[itemprop='postalCode']")[0].text
 
-    fest_page.css("div.panel-body222.text-center ul li a").each do |a|
+    fest_page.css("div.panel-body222.text-center ul li a").each_with_index do |a, index|
       name = a.text.strip
       if name[0,4] == "The "
-        festival[:artists] << {name: name, sort_name: name[4..-1]} #saving sort_name doesn't seem to be working, here or in else statement.
+        festival[:artists] << {name: name, sort_name: name[4..-1], sort_order: index}
       elsif name[0,1] == "."
-        festival[:artists] << {name: name, sort_name: name[1..-1]}
+        festival[:artists] << {name: name, sort_name: name[1..-1], sort_order: index}
       elsif name != ""
-        festival[:artists] << {name: name, sort_name: name}
+        festival[:artists] << {name: name, sort_name: name, sort_order: index}
       end
     end
 
     festival
   end
 
-  # def self.create_artists(name)
-  #   f = Festival.find_or_create_by(name: name)
-  #   self.new.scrape_lineup(name.downcase.gsub(" ", "-")).each do |a|
-  #     a_id = Artist.find_or_create_by(name: a).id
-  #     FestivalArtist.find_or_create_by(artist_id: a_id, festival_id: f.id)
-  #   end
-  # end
-
   def self.create_or_update_festival(slug)
-    # binding.pry
     f = Festival.find_by(slug: slug)
     hash = self.new.scrape_festival(slug)
     if f
@@ -71,7 +62,8 @@ class JambaseScraper
         artist = Artist.find_or_create_by(name: a[:name])
         artist.sort_name = a[:sort_name]
         artist.save
-        FestivalArtist.find_or_create_by(artist_id: artist.id, festival_id: f.id)
+        fa = FestivalArtist.find_or_create_by(artist_id: artist.id, festival_id: f.id)
+        fa.update(sort_order: a[:sort_order])
       end
     end
   end

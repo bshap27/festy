@@ -1,8 +1,12 @@
 <h3>You selected: <%= link_to @fest1.name, @fest1 %> and <%= link_to @fest2.name, @fest2 %></h3>
 
 <h2>Artists in common:</h2>
-<% @compare.artists_in_common.each do |artist| %>
-	<li><%= link_to artist.name, artist %></li>
+<% if @compare.artists_in_common == [] %>
+	<p>No overlap!</p>
+<% else %>
+	<% @compare.artists_in_common.each do |artist| %>
+		<li><%= link_to artist.name, artist %></li>
+	<% end %>
 <% end %>
 
 

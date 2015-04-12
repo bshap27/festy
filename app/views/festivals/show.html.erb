@@ -20,12 +20,12 @@
   </fieldset>
 <% end %>
 
-<h3><%= @festival.artists.count %> artists are playing at <%= @festival.name %>:</h3>
+<h3><%= @artists.count %> artists are playing at <%= @festival.name %>:</h3>
 
 <% if user_signed_in? %>
   <p>&#x2713 = in My Artists</p>
 <% end %>
-<% @festival.artists.each do |a| %>
+<% @artists.each do |a| %>
   <% if user_signed_in? %>
     <li class='<%= current_user.artists.include?(a) ? 'my-artist' : 'artist-list' %>'><%= link_to a.name, a %></li>
   <% else %>
