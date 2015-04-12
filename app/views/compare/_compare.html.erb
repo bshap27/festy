@@ -3,11 +3,11 @@
     <legend>Compare Lineups!</legend>
     <div class="form-group">
       <div class="col-lg-5">
-				<%= select_tag(:fest1, options_for_select(@festivals.collect {|fest| [fest.name, fest.id]}, 1), :class => "form-control", :id => "select") %>
+				<%= select_tag(:fest1, options_for_select(@festivals.collect {|fest| [fest.name, fest.id]}, 122), :class => "form-control", :id => "select") %>
       </div>
 
 			<div class="col-lg-5">
-      	<%= select_tag(:fest2, options_for_select(@festivals.collect {|fest| [fest.name, fest.id]}, 2), :class => "form-control", :id => "select") %>
+      	<%= select_tag(:fest2, options_for_select(@festivals.collect {|fest| [fest.name, fest.id]}, 12), :class => "form-control", :id => "select") %>
     	</div>
       
       <%= submit_tag("Compare", :class => "btn btn-primary") %>

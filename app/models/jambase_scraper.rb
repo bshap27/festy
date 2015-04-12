@@ -47,10 +47,14 @@ class JambaseScraper
 
   def self.create_or_update_festival(slug)
     f = Festival.find_by(slug: slug)
-    hash = self.new.scrape_festival(slug)
+    begin
+      hash = self.new.scrape_festival(slug)
+    rescue
+      puts "404!!!!!!! #{slug}"
+    end
     if f
       f.update(official_site: hash[:official_site], facebook: hash[:facebook], twitter: hash[:twitter], youtube: hash[:youtube], instagram: hash[:instagram],  city: hash[:city], state: hash[:state], zipcode: hash[:zipcode])
-    else
+    elsif hash
       if hash[:artists].size > 0
         f = Festival.create(slug: slug, name: hash[:name], start_date: hash[:start_date], end_date: hash[:end_date], img_url: hash[:img_url], official_site: hash[:official_site], facebook: hash[:facebook], twitter: hash[:twitter], youtube: hash[:youtube], instagram: hash[:instagram],  city: hash[:city], state: hash[:state], zipcode: hash[:zipcode])
       end

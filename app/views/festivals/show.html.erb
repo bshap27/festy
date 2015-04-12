@@ -11,7 +11,7 @@
 			<%= hidden_field_tag(:fest1, value = @festival.id) %>
 
 			<div class="col-lg-5">
-      	<%= select_tag(:fest2, options_for_select(@festivals.collect {|fest| [fest.name, fest.id] unless fest == @festival}.compact), :class => "form-control", :id => "select") %>
+      	<%= select_tag(:fest2, options_for_select(@festivals.collect {|fest| [fest.name, fest.id] unless fest == @festival}.compact, @festival.id == 122 ? 12 : 122), :class => "form-control", :id => "select") %>
     	</div>
       
       <%= submit_tag("Compare", :class => "btn btn-primary") %>
