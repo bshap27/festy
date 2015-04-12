@@ -1,10 +1,16 @@
 <% if user_signed_in? %>
 	<div class="add-artist">
 
-		<%= form_for(UserArtist.new, :class => 'btn') do |f| %>
-			<%= f.hidden_field(:user_id, :value => current_user.id) %>
-			<%= f.hidden_field(:artist_id, :value => @artist.id) %>
-			<%= f.submit "Add to my artists" %>
+		<% if @userartist.persisted? %>
+			<%= form_for(@userartist, :class => 'btn', :method => :delete) do |f| %>
+				<%= f.submit "Remove from my artists" %>
+			<% end %>
+		<% else %>
+			<%= form_for(@userartist, :class => 'btn') do |f| %>
+				<%= f.hidden_field(:user_id, :value => current_user.id) %>
+				<%= f.hidden_field(:artist_id, :value => @artist.id) %>
+				<%= f.submit "Add to my artists" %>
+			<% end %>
 		<% end %>
 
 	</div>
