@@ -18,9 +18,8 @@ like?
 for compare tool:
 - authorize through jambase using oauth?
 - Tag festivals by type: EDM, Jam, etc.
-- allow users to add favorite artists AND/OR connect to jambase for favorite artists.
-- users: I'M GOING feature, connect with friends, see who's going, integrate with repyourcrew
-- select 2 fests from dropdown and see artist overlap - total count and names and then unique artists.
+- connect to jambase for favorite artists.
+- connect with friends, see who's going, integrate with repyourcrew
 - venn diagrams
 - ticket onsale reminders
 - I need tickets -> cashortrade? stubhub?
@@ -28,14 +27,13 @@ for compare tool:
 - integrate with custom schedules on fest sites
 - integrate with google calendar like jambase
 
-- set up authentication using devise
-- set up search func (dropdown by artist/by fest)
+- facebook omniauth
+- don't see your fest? let me know
 
 
 featured festivals on jambase:
 http://festivals.jambase.com/
 
-can scrape to get title and image hrefs
 
 Fest Lists
 Electric Forest
