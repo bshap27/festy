@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  get 'my_account' => 'users#show'
   get 'my_festivals' => 'users#festivals'
   get 'my_artists' => 'users#artists'
   get 'search_results' => 'search#show'
