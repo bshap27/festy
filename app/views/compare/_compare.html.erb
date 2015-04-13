@@ -1,6 +1,6 @@
 <%= form_tag("/compare", method: "get", :class => 'form-horizontal') do %>
   <fieldset>
-    <legend>Compare Lineups!</legend>
+    <legend>Compare Lineups:</legend>
     <div class="form-group">
       <div class="col-lg-5">
 				<%= select_tag(:fest1, options_for_select(@festivals.collect {|fest| [fest.name, fest.id]}, 122), :class => "form-control", :id => "select") %>
