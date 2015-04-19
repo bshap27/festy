@@ -25,10 +25,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,16 +50,19 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'simplecov'
   gem 'database_cleaner'
-  gem 'sqlite3'
+  # gem 'sqlite3'
   gem 'pry'
   gem 'guard-rspec', require: false
   gem 'thin'
 end
 
 group :production do
-  gem 'pg'
+  # gem 'pg'
+  # gem 'sqlite3'
   gem 'google-analytics-rails'
   gem 'rails_12factor'
 end
 
 gem 'bootstrap-sass', '~> 3.1.1'
+gem 'sqlite3'
+# gem 'rvm-capistrano'
