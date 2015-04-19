@@ -30,6 +30,8 @@ for compare tool:
 - facebook omniauth
 - don't see your fest? let me know
 
+- how to account for when an artist drops out of a festival or their display name changes.
+newport folk festival iron & wine changed to iron & wine with ben bridwell
 
 featured festivals on jambase:
 http://festivals.jambase.com/
