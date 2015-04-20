@@ -59,5 +59,18 @@
     
     <% end %>
 
+    <div class="clearfix"></div>
+    <br><br>
+
+    <% if @state_festivals.size > 0 %>
+      <div class="right text-right">
+        <h3>Other Festivals in <%= @festival.state %></h3>
+        <% @state_festivals.each do |state_fest| %>
+          <li><%= link_to state_fest.name, state_fest %>: <%= state_fest.city %>, <%= state_fest.state %></li>
+        <% end %>
+      </div>
+    <% end %>
+
+
   </div>
 </div>
