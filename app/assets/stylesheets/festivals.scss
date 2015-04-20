@@ -109,9 +109,15 @@ div.festival-links > p > a {
 }
 
 .watermark {
-	float: right;
 	margin-right: 20px;
+	right: 0px;
 	margin-top: 50px;
 	margin-bottom: 20px;
 	width: 150px;
+	/*bottom: 0;*/
+	position: absolute;
+}
+
+body {
+	min-height: 680px;
 }
