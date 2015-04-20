@@ -66,3 +66,5 @@ end
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'sqlite3'
 # gem 'rvm-capistrano'
+gem 'figaro'
+gem 'Rspotify'
