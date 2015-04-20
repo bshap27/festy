@@ -50,21 +50,21 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'simplecov'
   gem 'database_cleaner'
-  # gem 'sqlite3'
+  gem 'sqlite3'
   gem 'pry'
   gem 'guard-rspec', require: false
   gem 'thin'
 end
 
 group :production do
-  # gem 'pg'
+  gem 'pg'
   # gem 'sqlite3'
   gem 'google-analytics-rails'
   gem 'rails_12factor'
 end
 
 gem 'bootstrap-sass', '~> 3.1.1'
-gem 'sqlite3'
+# gem 'sqlite3'
 # gem 'rvm-capistrano'
 gem 'figaro'
 gem 'rspotify'
