@@ -15,7 +15,6 @@ class JambaseScraper
     festival[:start_date] = fest_page.css("[itemprop='startDate']")[0]["content"]
     festival[:end_date] = fest_page.css("[itemprop='endDate']")[0]["content"]
     festival[:img_url] = fest_page.css("div.featured-media.featured-media-img img").attr("src").value if fest_page.css("div.featured-media.featured-media-img img").length != 0
-    binding.pry
     festival[:ticket_link] = fest_page.css("p.h4.text-primary").first.parent['href']
 
     links = {}
