@@ -9,7 +9,7 @@
     <legend>Compare lineup to other festivals:</legend>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-7">
 
     <div class="form-group">
       <%= hidden_field_tag(:fest1, value = @festival.id) %>
@@ -37,9 +37,9 @@
     <% end %>
   </div>
 
-  <div class="col-md-6">
+  <div class="col-md-5">
 
-    <div class="right text-right">
+    <div class="right text-right festival-links">
       <h3>Festival Links</h3>
       <p><%= link_to "<span class='icon-home3 pink'></span>  Official Site".html_safe, @festival.official_site, :target => "_blank" if @festival.official_site %></p>
       <p><%= link_to "<span class='icon-ticket pink'></span>  Buy Tickets".html_safe, @festival.ticket_link, :target => "_blank" if @festival.ticket_link %></p>
@@ -63,7 +63,7 @@
     <br><br>
 
     <% if @state_festivals.size > 0 %>
-      <div class="right text-right">
+      <div class="right text-right other-fests">
         <h3>Other Festivals in <%= @festival.state %></h3>
         <% @state_festivals.each do |state_fest| %>
           <li><%= link_to state_fest.name, state_fest %>: <%= state_fest.city %>, <%= state_fest.state %></li>
