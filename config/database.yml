@@ -21,4 +21,7 @@ test:
   database: db/test.sqlite3
 
 production:
-  url: <%= ENV["DATABASE_URL"] %>
+  database: festy
+  adapter: postgresql
+  pool: 5
+  encoding: unicode 
