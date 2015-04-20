@@ -34,7 +34,7 @@ class SpotifyApi
     # p = festivalsnob.playlists #=> (Playlist array)
   def find_playlist
     SpotifyApi.authenticate
-    binding.pry
+    # binding.pry
     if @fest_name == "Coachella (Weekend 1)"
       RSpotify::Playlist.find('1268738460','4AtJbgbmD0GgrpCSGkoE8R')
     else
