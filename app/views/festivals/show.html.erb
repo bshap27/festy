@@ -1,6 +1,7 @@
 <img src="<%= @festival.img_url %>" class="center">
 
 <h4 class='center'>Begins: <%= @festival.start_date.strftime("%m/%d") %> | Ends: <%= @festival.end_date.strftime("%m/%d") %></h4>
+<h3 class='center'><%= "#{@festival.city}, " %><%= @festival.state %></h3>
 
 <%= render 'im_going' %>
 
@@ -37,10 +38,26 @@
   </div>
 
   <div class="col-md-6">
-  <% if @playlist != "" %>
-    <h3 class="text-right"><%= @playlist.name %></h3>
-    <h5 class="text-right">by Spotify User <%= @playlist.owner.id %></h5>
-    <iframe src="https://embed.spotify.com/?uri=spotify:user:<%= @playlist.owner.id %>:playlist:<%= @playlist.id %>" frameborder="0" allowtransparency="true" width="300" height="380" class="right" id='spotify-player'></iframe>
-  <% end %>
+
+    <div class="right text-right">
+      <h3>Festival Links</h3>
+      <p><%= link_to "Official Site", @festival.official_site, :target => "_blank" if @festival.official_site %></p>
+      <p><%= link_to "Buy Tickets", @festival.ticket_link, :target => "_blank" if @festival.ticket_link %></p>
+      <p><%= link_to "Facebook", @festival.facebook, :target => "_blank" if @festival.facebook %></p>
+      <p><%= link_to "Twitter", @festival.twitter, :target => "_blank" if @festival.twitter %></p>
+      <p><%= link_to "YouTube", @festival.youtube, :target => "_blank" if @festival.youtube %></p>
+      <p><%= link_to "Instagram", @festival.instagram, :target => "_blank" if @festival.instagram %></p>
+    </div>
+    
+    <div class="clearfix"></div>
+    <br><br>
+    
+    <% if @playlist != "" %>
+      <h3 class="text-right"><%= @playlist.name %></h3>
+      <h5 class="text-right">by Spotify User <%= @playlist.owner.id %></h5>
+      <iframe src="https://embed.spotify.com/?uri=spotify:user:<%= @playlist.owner.id %>:playlist:<%= @playlist.id %>" frameborder="0" allowtransparency="true" width="300" height="380" class="right" id='spotify-player'></iframe>
+    
+    <% end %>
+
   </div>
 </div>

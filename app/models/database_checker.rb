@@ -32,3 +32,13 @@ end
 #  ["Northern Nights Music Festival", 0],
 #  ["Great South Bay Music Festival", 0],
 #  ["Spectral Spirit Fest", 0]]
+
+# def count_fests(a)
+#   ans = []
+#   a.each do |fest|
+#     fest.artists.each do |artist|
+#       ans << "#{fest.name}: #{artist.name}: #{artist.festivals.count}"
+#     end
+#   end
+#   ans
+# end

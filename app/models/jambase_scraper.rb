@@ -15,6 +15,8 @@ class JambaseScraper
     festival[:start_date] = fest_page.css("[itemprop='startDate']")[0]["content"]
     festival[:end_date] = fest_page.css("[itemprop='endDate']")[0]["content"]
     festival[:img_url] = fest_page.css("div.featured-media.featured-media-img img").attr("src").value if fest_page.css("div.featured-media.featured-media-img img").length != 0
+    binding.pry
+    festival[:ticket_link] = fest_page.css("p.h4.text-primary").first.parent['href']
 
     links = {}
     fest_page.css("div.panel.panel-info.panel-links div.panel-body ul.list-unstyled li a").each do |li|
@@ -53,10 +55,10 @@ class JambaseScraper
       puts "404!!!!!!! #{slug}"
     end
     if f
-      f.update(official_site: hash[:official_site], facebook: hash[:facebook], twitter: hash[:twitter], youtube: hash[:youtube], instagram: hash[:instagram],  city: hash[:city], state: hash[:state], zipcode: hash[:zipcode])
+      f.update(official_site: hash[:official_site], facebook: hash[:facebook], twitter: hash[:twitter], youtube: hash[:youtube], instagram: hash[:instagram],  city: hash[:city], state: hash[:state], zipcode: hash[:zipcode], ticket_link: hash[:ticket_link])
     elsif hash
       if hash[:artists].size > 0
-        f = Festival.create(slug: slug, name: hash[:name], start_date: hash[:start_date], end_date: hash[:end_date], img_url: hash[:img_url], official_site: hash[:official_site], facebook: hash[:facebook], twitter: hash[:twitter], youtube: hash[:youtube], instagram: hash[:instagram],  city: hash[:city], state: hash[:state], zipcode: hash[:zipcode])
+        f = Festival.create(slug: slug, name: hash[:name], start_date: hash[:start_date], end_date: hash[:end_date], img_url: hash[:img_url], official_site: hash[:official_site], facebook: hash[:facebook], twitter: hash[:twitter], youtube: hash[:youtube], instagram: hash[:instagram],  city: hash[:city], state: hash[:state], zipcode: hash[:zipcode], ticket_link: hash[:ticket_link])
       end
     end
 
