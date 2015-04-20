@@ -15,7 +15,7 @@ class FestivalsController < ApplicationController
     @festivals = Festival.order("name")
     @festival = Festival.find(params[:id])
     @artists = @festival.artists.order("sort_order")
-    @playlist = SpotifyApi.new(@festival.name).find_playlist || ""
+    @playlist = SpotifyApi.new(@festival.name).find_playlist
     @state_festivals = Festival.where("state = '#{@festival.state}'").where("name != '#{@festival.name}'").order("name")
   end
 
