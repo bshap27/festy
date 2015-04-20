@@ -74,14 +74,14 @@ span#arrow.inactive {
 
 
 body {
-	background: url("leo_balloons_6.png") no-repeat;
+	background: url("Erika_Jill9.jpg") no-repeat;
 	background-size: 100%;
 	background-attachment: fixed;
 	z-index: -50;
 }
 
 .container {
-	background-color: rgba(255, 255, 255, .95);
+	background-color: rgba(255, 255, 255, .80);
 	padding: 30px;
 	border-radius: 25px;
 }
@@ -106,4 +106,12 @@ div.festival-links > p > a {
 .small-icon {
 	font-size: 12px;
 	margin-right: 4px;
+}
+
+.watermark {
+	float: right;
+	margin-right: 20px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	width: 150px;
 }

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'my_festivals' => 'users#festivals'
   get 'my_artists' => 'users#artists'
   get 'search_results' => 'search#show'
+  get 'about' => 'application#about'
 
   resources :festivals, :only => [:index, :show]
   resources :artists, :only => [:index]
