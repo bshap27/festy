@@ -41,12 +41,12 @@
 
     <div class="right text-right">
       <h3>Festival Links</h3>
-      <p><%= link_to "Official Site", @festival.official_site, :target => "_blank" if @festival.official_site %></p>
-      <p><%= link_to "Buy Tickets", @festival.ticket_link, :target => "_blank" if @festival.ticket_link %></p>
-      <p><%= link_to "Facebook", @festival.facebook, :target => "_blank" if @festival.facebook %></p>
-      <p><%= link_to "Twitter", @festival.twitter, :target => "_blank" if @festival.twitter %></p>
-      <p><%= link_to "YouTube", @festival.youtube, :target => "_blank" if @festival.youtube %></p>
-      <p><%= link_to "Instagram", @festival.instagram, :target => "_blank" if @festival.instagram %></p>
+      <p><%= link_to "<span class='icon-home3 pink'></span>  Official Site".html_safe, @festival.official_site, :target => "_blank" if @festival.official_site %></p>
+      <p><%= link_to "<span class='icon-ticket pink'></span>  Buy Tickets".html_safe, @festival.ticket_link, :target => "_blank" if @festival.ticket_link %></p>
+      <p><%= link_to "<span class='icon-facebook2 pink'></span>  Facebook".html_safe, @festival.facebook, :target => "_blank" if @festival.facebook %></p>
+      <p><%= link_to "<span class='icon-twitter2 pink'></span>  Twitter".html_safe, @festival.twitter, :target => "_blank" if @festival.twitter %></p>
+      <p><%= link_to "<span class='icon-youtube3 pink'></span>  YouTube".html_safe, @festival.youtube, :target => "_blank" if @festival.youtube %></p>
+      <p><%= link_to "<span class='icon-instagram pink'></span>  Instagram".html_safe, @festival.instagram, :target => "_blank" if @festival.instagram %></p>
     </div>
     
     <div class="clearfix"></div>
