@@ -335,6 +335,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  nokogiri
   pry
   prybaby
   rails (= 4.2.0)
