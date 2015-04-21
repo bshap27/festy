@@ -6,7 +6,6 @@
 	<p>This user isn't following any artists yet!</p>
 <% else %>
 	<% @user.artists.each do |artist| %>
-		<%# binding.pry %>
 		<li><%= link_to artist.name, artist %><%= render 'artists/my_artists', :userartist => current_user.saved_artist?(artist), :artist => artist %></li>
 	<% end %>
 <% end %>
