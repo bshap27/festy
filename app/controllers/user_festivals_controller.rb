@@ -3,7 +3,7 @@ class UserFestivalsController < ApplicationController
   def create
     @userfestival = UserFestival.find_or_create_by(user_festival_params)
     if @userfestival.save
-      redirect_to festival_path(Festival.find(params[:user_festival][:festival_id]))
+      redirect_to :back #festival_path(Festival.find(params[:user_festival][:festival_id]))
     else
       raise params.inspect
     end

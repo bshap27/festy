@@ -121,3 +121,7 @@ div.festival-links > p > a {
 body {
 	min-height: 680px;
 }
+
+.add-artist, .watch-festival, .goto-festival {
+	display: inline-block;
+}

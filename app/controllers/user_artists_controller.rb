@@ -3,7 +3,7 @@ class UserArtistsController < ApplicationController
   def create
     @userartist = UserArtist.find_or_create_by(user_artist_params)
     if @userartist.save
-      redirect_to artist_path(Artist.find(params[:user_artist][:artist_id]))
+      redirect_to :back #artist_path(Artist.find(params[:user_artist][:artist_id]))
     else
       raise params.inspect
     end

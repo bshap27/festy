@@ -1,24 +1,22 @@
 <% if user_signed_in? %>
 	<div class="goto-festival center">
 
-		<% if @going_to = current_user.going_to_festival?(@festival) %>
+		<% if going_to_festival.persisted? %>
 
-			<%= form_for(@going_to, :class => 'btn', :method => :delete) do |f| %>
-				<%= f.label :"I'm going!" %>
+			<%= form_for(going_to_festival, :class => 'btn', :method => :delete) do |f| %>
 				<%= f.hidden_field(:user_id, :value => current_user.id) %>
-				<%= f.hidden_field(:festival_id, :value => @festival.id) %>
+				<%= f.hidden_field(:festival_id, :value => festival.id) %>
 				<%= f.hidden_field(:relationship_type, :value => 0) %>
-				<%= f.submit "Remove" %>
+				<%= f.submit "Remove from My Festivals" %>
 			<% end %>
 
 		<% else %>
 
-			<%= form_for(UserFestival.new, :class => 'btn') do |f| %>
-				<%= f.label :"Add to My Festivals" %>
+			<%= form_for(going_to_festival, :class => 'btn') do |f| %>
 				<%= f.hidden_field(:user_id, :value => current_user.id) %>
-				<%= f.hidden_field(:festival_id, :value => @festival.id) %>
+				<%= f.hidden_field(:festival_id, :value => festival.id) %>
 				<%= f.hidden_field(:relationship_type, :value => 0) %>
-				<%= f.submit "I'm Going!" %>
+				<%= f.submit "I'm Going - Add to my festivals!" %>
 			<% end %>
 
 		<% end %>
@@ -27,24 +25,22 @@
 
 	<div class="watch-festival center">
 
-		<% if @watching = current_user.watching_festival?(@festival) %>
+		<% if watching_festival.persisted? %>
 
-			<%= form_for(@watching, :class => 'btn', :method => :delete) do |f| %>
-				<%= f.label :"Watching this festival" %>
+			<%= form_for(watching_festival, :class => 'btn', :method => :delete) do |f| %>
 				<%= f.hidden_field(:user_id, :value => current_user.id) %>
-				<%= f.hidden_field(:festival_id, :value => @festival.id) %>
+				<%= f.hidden_field(:festival_id, :value => festival.id) %>
 				<%= f.hidden_field(:relationship_type, :value => 1) %>
-				<%= f.submit "Remove" %>
+				<%= f.submit "Stop Watching" %>
 			<% end %>	
 
 		<% else %>
 
-			<%= form_for(UserFestival.new, :class => 'btn') do |f| %>
-				<%= f.label :"Watch this festival" %>
+			<%= form_for(watching_festival, :class => 'btn') do |f| %>
 				<%= f.hidden_field(:user_id, :value => current_user.id) %>
-				<%= f.hidden_field(:festival_id, :value => @festival.id) %>
+				<%= f.hidden_field(:festival_id, :value => festival.id) %>
 				<%= f.hidden_field(:relationship_type, :value => 1) %>
-				<%= f.submit "Watch" %>
+				<%= f.submit "Watch this Festival" %>
 			<% end %>
 
 		<% end %>

@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   has_many :targets, through: :following_people
 
   def watching_festival?(festival)
-    UserFestival.find_by(user_id: self.id, festival_id: festival.id, relationship_type: 1)
+    UserFestival.find_by(user_id: self.id, festival_id: festival.id, relationship_type: 1) || UserFestival.new
   end
 
   def watching_festivals
@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def going_to_festival?(festival)
-    UserFestival.find_by(user_id: self.id, festival_id: festival.id, relationship_type: 0)
+    UserFestival.find_by(user_id: self.id, festival_id: festival.id, relationship_type: 0) || UserFestival.new
   end
 
   def going_to_festivals

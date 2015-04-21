@@ -16,7 +16,7 @@
 	<p>User isn't going to any festivals yet!</p>
 <% else %>
 	<% @user.going_to_festivals.each do |festival| %>
-		<li><%= link_to festival.name, festival %></li>
+		<li><%= link_to festival.name, festival %><%= render 'festivals/im_going', :going_to_festival => current_user.going_to_festival?(festival), :watching_festival => current_user.watching_festival?(festival), :festival => festival %></li>
 	<% end %>
 <% end %>
 

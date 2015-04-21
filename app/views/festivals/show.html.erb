@@ -3,7 +3,7 @@
 <h4 class='center'>Begins: <%= @festival.start_date.strftime("%m/%d") %> | Ends: <%= @festival.end_date.strftime("%m/%d") %></h4>
 <h3 class='center'><%= "#{@festival.city}, " %><%= @festival.state %></h3>
 
-<%= render 'im_going' %>
+<%= render 'im_going', :going_to_festival => current_user.going_to_festival?(@festival), :watching_festival => current_user.watching_festival?(@festival), :festival => @festival %>
 
 <%= form_tag("/compare", method: "get", :class => 'form-horizontal') do %>
     <legend>Compare lineup to other festivals:</legend>
