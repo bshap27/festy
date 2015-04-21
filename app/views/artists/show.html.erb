@@ -1,6 +1,6 @@
 <h1><%= @artist.name %></h1>
 
-<%= render 'my_artists' %>
+<%= render 'my_artists', :userartist => current_user.saved_artist?(@artist), :artist => @artist %>
 
 <h3>will be playing at <%= @artist.festivals.count %> upcoming <%= @artist.festivals.count == 1 ? "festival:" : "festivals!" %></h3>
 

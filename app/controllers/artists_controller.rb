@@ -18,6 +18,5 @@ class ArtistsController < ApplicationController
 
   def show
     @artist = Artist.find(params[:id])
-    @userartist = UserArtist.find_by(user_id: current_user, artist_id: @artist) || UserArtist.new
   end
 end
