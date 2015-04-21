@@ -1,1 +1,31 @@
-My Account
+<h1><%= @user.email %></h1>
+
+<h3>User's Artists</h3>
+
+<% if @user.artists.length == 0 %>
+	<p>This user isn't following any artists yet!</p>
+<% else %>
+	<% @user.artists.each do |artist| %>
+		<%# binding.pry %>
+		<li><%= link_to artist.name, artist %><%= render 'artists/my_artists', :userartist => current_user.saved_artist?(artist), :artist => artist %></li>
+	<% end %>
+<% end %>
+
+<h3>User's Festivals</h3>
+<h4>User is going to the following festivals:</h4>
+<% if @user.going_to_festivals.length == 0 %>
+	<p>User isn't going to any festivals yet!</p>
+<% else %>
+	<% @user.going_to_festivals.each do |festival| %>
+		<li><%= link_to festival.name, festival %></li>
+	<% end %>
+<% end %>
+
+<h4>User is watching the following festivals:</h4>
+<% if @user.watching_festivals.length == 0 %>
+	<p>User isn't watching any festivals yet!</p>
+<% else %>
+	<% @user.watching_festivals.each do |festival| %>
+		<li><%= link_to festival.name, festival %></li>
+	<% end %>
+<% end %>

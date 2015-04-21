@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  resources :users, :only => [:index, :show]
   get 'my_festivals' => 'users#festivals'
   get 'my_artists' => 'users#artists'
   get 'search_results' => 'search#show'
+  get 'user_results' => 'search#user_results'
   get 'about' => 'application#about'
 
   resources :festivals, :only => [:index, :show]

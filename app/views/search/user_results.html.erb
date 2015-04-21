@@ -1,0 +1,19 @@
+<%= render 'search/search_users' %>
+
+<div class="clearfix"></div>
+
+<% if @user_results %>
+
+	<h4>Found <%= @user_results.count %> matching user(s):</h4>
+
+	<ul>
+	<% @user_results.each do |user| %>
+		<li><%= link_to user.email, user %></li>
+	<% end %>
+	</ul>
+
+<% else %>
+
+	Sorry, no matches found.
+
+<% end %>

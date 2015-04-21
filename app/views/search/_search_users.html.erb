@@ -1,0 +1,8 @@
+<%= form_for(Search.new, :url => user_results_path, :role => 'search', :method => 'get') do |f| %>
+	<div class='navbar-form navbar-left'>
+		<div class="form-group">
+		<%= f.text_field :search_term, label: false,  placeholder: 'Find User by Email', :class => "form-control" %> 
+	  </div>
+	<%= f.submit "Go", :class => "btn btn-default" %>
+<% end %>
+</div>

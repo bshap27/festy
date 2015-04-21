@@ -1,15 +1,19 @@
 class UsersController < ApplicationController
+  # before_action :festivals_going, :festivals_watching, :only => [:artists, :festivals, :show]
 
   def artists
-    @artists = current_user.artists
-    @festivals_going = Festival.joins(:users).where("user_id = #{current_user.id}").where("relationship_type = 0")
-    @festivals_watching = Festival.joins(:users).where("user_id = #{current_user.id}").where("relationship_type = 1")
   end
 
   def festivals
-    @artists = current_user.artists
-    @festivals_going = Festival.joins(:users).where("user_id = #{current_user.id}").where("relationship_type = 0")
-    @festivals_watching = Festival.joins(:users).where("user_id = #{current_user.id}").where("relationship_type = 1")
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
+
+  private
+
+  def users_artists(user)
   end
 
 end
