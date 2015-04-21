@@ -1,18 +1,18 @@
 <h3>My Festivals</h3>
 <h4>I'm Going!</h4>
-<% if @festivals_going.length == 0 %>
+<% if current_user.going_to_festivals.length == 0 %>
 	<p>You haven't added any festivals to your "I'm Going" list! Click the button "I'm Going" from any festival page to add it to your list.</p>
 <% else %>
-	<% @festivals_going.each do |festival| %>
+	<% current_user.going_to_festivals.each do |festival| %>
 		<li><%= link_to festival.name, festival %></li>
 	<% end %>
 <% end %>
 
 <h4>I'm Watching</h4>
-<% if @festivals_watching.length == 0 %>
+<% if current_user.watching_festivals.length == 0 %>
 	<p>You aren't watching any festivals yet! Click the "Watch" button on any festival page to add it to your watch list.</p>
 <% else %>
-	<% @festivals_watching.each do |festival| %>
+	<% current_user.watching_festivals.each do |festival| %>
 		<li><%= link_to festival.name, festival %></li>
 	<% end %>
 <% end %>
